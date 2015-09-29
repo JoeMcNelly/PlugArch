@@ -1,13 +1,8 @@
 package edu.rosehulman.PluginArch;
 
-import java.awt.Button;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.LayoutManager;
 import java.io.File;
-import java.io.IOException;
+import java.util.HashMap;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -19,8 +14,10 @@ public class ListingPanel extends JPanel {
 
 	private StatusPanel statusPanel;
 	private static ListingPanel instance;
+	private HashMap<String, JButton> mapOfButtons; 
 	public ListingPanel() {
 		statusPanel = StatusPanel.getInstance();
+		mapOfButtons = new HashMap<String, JButton>();
 		// TODO: set up real components
 		// list all of the plugins as buttons,
 		// the buttons switch the active plugin
@@ -46,6 +43,11 @@ public class ListingPanel extends JPanel {
 		this.add(new JButton(s));
 		this.revalidate();
 		statusPanel.fireNewStatus("New file loaded: " + s);
+	}
+	
+	public void removeFromListPanel(String fileName) {
+		this.remove(mapOfButtons.get(fileName));
+		this.revalidate();
 	}
 
 	public static ListingPanel getInstance() {
