@@ -18,7 +18,7 @@ public class ListingPanel extends JPanel {
 	private static ListingPanel instance;
 	private static ExecutionPanel executionPanel;
 	private HashMap<String, JButton> mapOfButtons; 
-	public ListingPanel() {
+	private ListingPanel() {
 		statusPanel = StatusPanel.getInstance();
 		executionPanel = ExecutionPanel.getInstance();
 		mapOfButtons = new HashMap<String, JButton>();

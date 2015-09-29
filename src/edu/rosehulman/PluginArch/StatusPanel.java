@@ -16,7 +16,7 @@ public class StatusPanel extends JPanel{
 	private StringBuilder sb;
 	private static StatusPanel instance;
 	
-	public StatusPanel() {
+	private StatusPanel() {
 		super(new BorderLayout());
 		this.add(new JLabel("Status:"),BorderLayout.NORTH);
 		sb = new StringBuilder();

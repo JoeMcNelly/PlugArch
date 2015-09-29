@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 public class ExecutionPanel extends JPanel {
 	private static ExecutionPanel instance;
 
-	public ExecutionPanel() {
+	private ExecutionPanel() {
 		// TODO: set up real components
 		// this is the panel plugins will draw stuff somehow
 		this.add(new JLabel("This is the execution panel"));

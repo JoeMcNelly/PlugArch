@@ -15,7 +15,7 @@ public class Application extends JFrame {
 	private static ListingPanel listPan;
 
 	private Application() {
-		execPan = new ExecutionPanel();
+		execPan = ExecutionPanel.getInstance();
 		statPan = StatusPanel.getInstance();
 		listPan = ListingPanel.getInstance();
 
