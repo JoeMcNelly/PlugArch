@@ -22,9 +22,6 @@ public class StatusPanel extends JPanel{
 		this.add(new JLabel("Status:"),BorderLayout.NORTH);
 		sb = new StringBuilder();
 		statusText = new JLabel(welcomeStatus());
-//		statusText.setText(welcomeStatus());
-//		statusText.setWrapStyleWord(true);
-//		statusText.setEditable(false);
 		JScrollPane scroll = new JScrollPane(statusText);
 		this.add(scroll,BorderLayout.SOUTH);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));

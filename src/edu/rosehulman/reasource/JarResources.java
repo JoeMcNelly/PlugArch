@@ -1,4 +1,4 @@
-package edu.rosehulman.PluginArch;
+package edu.rosehulman.reasource;
 
 import java.io.*;
 import java.util.*;

@@ -13,8 +13,6 @@ public class ExecutionPanel extends JPanel {
 	private static ExecutionPanel instance;
 
 	private ExecutionPanel() {
-		// TODO: set up real components
-		// this is the panel plugins will draw stuff somehow
 		super(new BorderLayout());
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 	}

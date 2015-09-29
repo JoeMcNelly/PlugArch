@@ -1,4 +1,4 @@
-package edu.rosehulman.PluginArch;
+package edu.rosehulman.reasource;
 
 public class JarLoader extends MultiClassLoader
 

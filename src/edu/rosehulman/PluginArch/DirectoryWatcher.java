@@ -48,7 +48,6 @@ public class DirectoryWatcher implements Runnable {
 		try {
 			startTimer();
 		} catch (IOException | InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

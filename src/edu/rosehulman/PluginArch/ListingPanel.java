@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import edu.rosehulman.reasource.JarLoader;
+
 public class ListingPanel extends JPanel {
 
 	private StatusPanel statusPanel;
@@ -22,9 +24,6 @@ public class ListingPanel extends JPanel {
 		statusPanel = StatusPanel.getInstance();
 		executionPanel = ExecutionPanel.getInstance();
 		mapOfButtons = new HashMap<String, JButton>();
-		// TODO: set up real components
-		// list all of the plugins as buttons,
-		// the buttons switch the active plugin
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		this.add(new JLabel("This is the listing panel"));
 
