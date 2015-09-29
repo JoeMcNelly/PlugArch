@@ -1,6 +1,8 @@
 package edu.rosehulman.PluginArch;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.HashMap;
 
@@ -34,15 +36,24 @@ public class ListingPanel extends JPanel {
 			count++;
 		}
 
-		statusPanel.fireNewStatus(count + " Files Loaded.");
+		statusPanel.fireNewStatus(count + " Files Loaded.\n");
 
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 	}
 
 	public void addToListPanel(String s) {
-		this.add(new JButton(s));
+		JButton button = new JButton(s);
+		button.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		this.add(button);
 		this.revalidate();
-		statusPanel.fireNewStatus("New file loaded: " + s);
+		statusPanel.fireNewStatus("New file loaded: " + s + "\n");
 	}
 	
 	public void removeFromListPanel(String fileName) {
