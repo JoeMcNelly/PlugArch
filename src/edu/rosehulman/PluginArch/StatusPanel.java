@@ -3,6 +3,7 @@ package edu.rosehulman.PluginArch;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Label;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -12,7 +13,7 @@ import javax.swing.JTextArea;
 
 public class StatusPanel extends JPanel{
 
-	private JTextArea statusText;
+	private JLabel statusText;
 	private StringBuilder sb;
 	private static StatusPanel instance;
 	
@@ -20,18 +21,17 @@ public class StatusPanel extends JPanel{
 		super(new BorderLayout());
 		this.add(new JLabel("Status:"),BorderLayout.NORTH);
 		sb = new StringBuilder();
-		statusText = new JTextArea();
-		statusText.setText(welcomeStatus());
-		statusText.setWrapStyleWord(true);
-		statusText.setEditable(false);
+		statusText = new JLabel(welcomeStatus());
+//		statusText.setText(welcomeStatus());
+//		statusText.setWrapStyleWord(true);
+//		statusText.setEditable(false);
 		JScrollPane scroll = new JScrollPane(statusText);
 		this.add(scroll,BorderLayout.SOUTH);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 	}
 	
 	public void fireNewStatus(String status) {
-		sb.append(status);
-		statusText.setText(sb.toString());
+		statusText.setText(status);
 	}
 	
 	private String welcomeStatus(){
