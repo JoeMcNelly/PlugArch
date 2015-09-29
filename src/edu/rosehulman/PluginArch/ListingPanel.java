@@ -16,9 +16,11 @@ public class ListingPanel extends JPanel {
 
 	private StatusPanel statusPanel;
 	private static ListingPanel instance;
+	private static ExecutionPanel executionPanel;
 	private HashMap<String, JButton> mapOfButtons; 
 	public ListingPanel() {
 		statusPanel = StatusPanel.getInstance();
+		executionPanel = ExecutionPanel.getInstance();
 		mapOfButtons = new HashMap<String, JButton>();
 		// TODO: set up real components
 		// list all of the plugins as buttons,
@@ -42,11 +44,25 @@ public class ListingPanel extends JPanel {
 	}
 
 	public void addToListPanel(String s) {
-		JButton button = new JButton(s);
+		JButton button = new JButton(s.substring(0, s.length()-4));
 		button.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				JarLoader loader = new JarLoader("./plugins/"+s);
+				String newString = s.substring(0, s.length()-4);
+				Class clazz;
+				try {
+					clazz = loader.loadClass(newString,true);
+					Object o = clazz.newInstance();
+					if(o instanceof PluginClass){
+						PluginClass pluginClass = (PluginClass) o;
+						executionPanel.add(pluginClass.setup());
+						executionPanel.revalidate();
+					}
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e1) {
+					e1.printStackTrace();
+				}
 				
 				
 			}
