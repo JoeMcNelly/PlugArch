@@ -57,8 +57,8 @@ public class ListingPanel extends JPanel {
 					Object o = clazz.newInstance();
 					if(o instanceof PluginClass){
 						PluginClass pluginClass = (PluginClass) o;
-						executionPanel.add(pluginClass.setup());
-						executionPanel.revalidate();
+						executionPanel.setPanel(pluginClass.setup());
+						
 					}
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e1) {
 					e1.printStackTrace();

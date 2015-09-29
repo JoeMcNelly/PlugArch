@@ -1,5 +1,6 @@
 package edu.rosehulman.PluginArch;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
@@ -21,5 +22,11 @@ public class ExecutionPanel extends JPanel {
 			instance = new ExecutionPanel();
 		}
 		return instance;
+	}
+	public void setPanel(JPanel panel){
+		this.removeAll();
+		this.add(panel, BorderLayout.SOUTH);
+		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+		this.revalidate();
 	}
 }
