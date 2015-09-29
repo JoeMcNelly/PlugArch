@@ -16,7 +16,7 @@ public class DirectoryWatcher implements Runnable{
 	public void startTimer() throws IOException, InterruptedException{
 		Path faxFolder = Paths.get("./plugins");
 		WatchService watchService = FileSystems.getDefault().newWatchService();
-		faxFolder.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
+		faxFolder.register(watchService, StandardWatchEventKinds.ENTRY_CREATE,StandardWatchEventKinds.ENTRY_DELETE);
 
 		boolean valid = true;
 		do {
@@ -28,6 +28,11 @@ public class DirectoryWatcher implements Runnable{
 					String fileName = event.context().toString();
 					System.out.println("File Created:" + fileName);
 					listPanel.addToListPanel(fileName);
+				}
+				if(StandardWatchEventKinds.ENTRY_DELETE.equals(event.kind())){
+					String fileName = event.context().toString();
+					System.out.println("File Removed: "+ fileName);
+					listPanel.removeFromListPanel(fileName);
 				}
 			}
 			valid = watchKey.reset();
