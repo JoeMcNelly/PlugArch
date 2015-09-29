@@ -2,6 +2,8 @@ package edu.rosehulman.PluginArch;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -13,7 +15,7 @@ public class ExecutionPanel extends JPanel {
 	private ExecutionPanel() {
 		// TODO: set up real components
 		// this is the panel plugins will draw stuff somehow
-		this.add(new JLabel("This is the execution panel"));
+		super(new BorderLayout());
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 	}
 
@@ -25,7 +27,7 @@ public class ExecutionPanel extends JPanel {
 	}
 	public void setPanel(JPanel panel){
 		this.removeAll();
-		this.add(panel, BorderLayout.SOUTH);
+		this.add(panel, BorderLayout.CENTER);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
 		this.revalidate();
 	}
